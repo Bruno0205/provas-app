@@ -11,6 +11,7 @@ export type Question = {
 };
 
 export type AlternativeLabelType = 'LETTERS' | 'POWERS_OF_TWO';
+export type GradingMode = 'STRICT' | 'LENIENT';
 
 export type Exam = {
   id: string;

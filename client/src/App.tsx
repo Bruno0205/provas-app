@@ -3,9 +3,10 @@ import { api, Question } from './api'
 import QuestionList from './components/QuestionList'
 import QuestionForm from './components/QuestionForm'
 import ExamsPanel from './components/ExamsPanel'
+import CorrectionsPanel from './components/CorrectionsPanel'
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'questions' | 'exams'>('questions')
+  const [activeTab, setActiveTab] = useState<'questions' | 'exams' | 'corrections'>('questions')
   const [questions, setQuestions] = useState<Question[]>([])
   const [editing, setEditing] = useState<Question | null>(null)
   const [showForm, setShowForm] = useState(false)
@@ -96,6 +97,12 @@ export default function App() {
           >
             Exams
           </button>
+          <button
+            className={activeTab === 'corrections' ? 'button-primary' : 'button-ghost'}
+            onClick={() => setActiveTab('corrections')}
+          >
+            Corrections
+          </button>
         </div>
 
         <main>
@@ -115,8 +122,10 @@ export default function App() {
                 />
               )}
             </>
-          ) : (
+          ) : activeTab === 'exams' ? (
             <ExamsPanel />
+          ) : (
+            <CorrectionsPanel />
           )}
         </main>
       </div>

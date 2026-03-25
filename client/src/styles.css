@@ -437,6 +437,93 @@ button {
 	margin-top: 0;
 }
 
+.correction-card h2,
+.correction-card h3 {
+	margin-top: 0;
+}
+
+.format-help {
+	margin-top: 0.8rem;
+	border: 1px solid #eadfce;
+	background: #fffdf9;
+	border-radius: 12px;
+	padding: 0.7rem;
+}
+
+.format-help p {
+	margin: 0.3rem 0;
+	color: #4d5162;
+	font-size: 0.92rem;
+}
+
+.csv-example {
+	margin: 0.3rem 0 0.6rem;
+	padding: 0.55rem;
+	border: 1px solid #e8dbc8;
+	border-radius: 10px;
+	background: #fff;
+	font-size: 0.84rem;
+	overflow: auto;
+}
+
+.template-actions {
+	display: flex;
+	gap: 0.45rem;
+	flex-wrap: wrap;
+}
+
+.error-list {
+	margin-top: 0.8rem;
+	border: 1px solid #fed7d7;
+	background: #fff5f5;
+	border-radius: 12px;
+	padding: 0.75rem;
+}
+
+.error-list h4 {
+	margin: 0 0 0.45rem;
+	font-size: 0.96rem;
+}
+
+.error-list ul {
+	margin: 0;
+	padding-left: 1.1rem;
+	display: grid;
+	gap: 0.35rem;
+	font-size: 0.9rem;
+	color: #8a1c1c;
+}
+
+.table-wrap {
+	overflow: auto;
+	margin-top: 0.5rem;
+	border: 1px solid #e8dccb;
+	border-radius: 12px;
+}
+
+.results-table {
+	width: 100%;
+	border-collapse: collapse;
+	min-width: 640px;
+	background: #fff;
+}
+
+.results-table th,
+.results-table td {
+	padding: 0.55rem 0.65rem;
+	border-bottom: 1px solid #efe5d8;
+	text-align: left;
+	font-size: 0.9rem;
+}
+
+.results-table th {
+	background: #faf4ea;
+	font-size: 0.82rem;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	color: #6f5f48;
+}
+
 .alts {
 	margin-top: 0.95rem;
 }

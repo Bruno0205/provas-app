@@ -108,13 +108,17 @@ function buildExamVersions(exam: ExamWithQuestions, numberOfExams: number): Gene
   return versions;
 }
 
-function buildAnswerKeyCsv(versions: GeneratedExamVersion[]): string {
+function buildAnswerKeyCsv(
+  versions: GeneratedExamVersion[],
+  labelType: AlternativeLabelType
+): string {
   const maxQuestions = versions.reduce((max, version) => Math.max(max, version.questions.length), 0);
-  const header = ['examNumber', ...Array.from({ length: maxQuestions }, (_, index) => `q${index + 1}`)];
+  const questionHeaders = Array.from({ length: maxQuestions }, (_, index) => `q${index + 1}`);
+  const header = ['examNumber', 'labelType', ...questionHeaders];
 
   const rows = versions.map((version) => {
     const questionAnswers = version.questions.map((question) => question.answerKey);
-    return [String(version.examNumber), ...questionAnswers];
+    return [String(version.examNumber), labelType, ...questionAnswers];
   });
 
   const csvRows = [header, ...rows].map((columns) => columns.join(','));
@@ -312,7 +316,7 @@ export const examsService = {
 
     const versions = buildExamVersions(exam, numberOfExams);
     const pdfBuffer = await buildPdf(exam, versions);
-    const csv = buildAnswerKeyCsv(versions);
+    const csv = buildAnswerKeyCsv(versions, exam.alternativeLabelType);
 
     const zip = new JSZip();
     zip.file('exams.pdf', pdfBuffer);

@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import questionsRouter from './routes/questions';
 import examsRouter from './routes/exams';
+import correctionsRouter from './routes/corrections';
 import path from 'path';
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use('/questions', questionsRouter);
 app.use('/exams', examsRouter);
+app.use('/corrections', correctionsRouter);
 
 app.get('/', (req, res) => res.send({ ok: true }));
 
