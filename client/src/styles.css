@@ -150,6 +150,16 @@ body {
 	color: #52525b;
 }
 
+.tab-row {
+	margin-top: 1rem;
+	display: inline-flex;
+	gap: 0.5rem;
+	padding: 0.35rem;
+	border: 1px solid #e4d7c6;
+	border-radius: 12px;
+	background: #fbf7f2;
+}
+
 .list {
 	margin-top: 1rem;
 	display: grid;
@@ -308,13 +318,123 @@ button {
 }
 
 .form input[type='text'],
-.form input {
+.form input,
+.form select,
+.form textarea {
 	width: 100%;
 	margin-top: 0.35rem;
 	border: 1px solid #d9cdbd;
 	border-radius: 10px;
 	padding: 0.58rem 0.7rem;
 	background: #fff;
+}
+
+.panel-actions {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.inline-error {
+	margin: 0.8rem 0;
+}
+
+.grid-fields {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.7rem;
+	margin-bottom: 0.8rem;
+}
+
+.question-selector {
+	margin-top: 1rem;
+}
+
+.question-select-list {
+	max-height: 260px;
+	overflow: auto;
+	display: grid;
+	gap: 0.45rem;
+	padding-right: 0.25rem;
+}
+
+.question-select-item {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: flex-start;
+	gap: 0.55rem;
+	padding: 0.55rem;
+	border: 1px solid #e8ddce;
+	border-radius: 12px;
+	background: #fffefb;
+}
+
+.question-select-item p {
+	margin: 0.2rem 0 0;
+	color: #686b79;
+	font-size: 0.9rem;
+}
+
+.helper-text {
+	margin: 0.4rem 0 0;
+	color: #666a7b;
+	font-size: 0.92rem;
+}
+
+.exam-meta {
+	margin: 0.25rem 0 0;
+	font-size: 0.9rem;
+	color: #5f6170;
+}
+
+.details-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.5rem 0.8rem;
+	margin-bottom: 1rem;
+}
+
+.details-grid p {
+	margin: 0;
+}
+
+.details-span {
+	grid-column: 1 / -1;
+}
+
+.question-preview-list {
+	display: grid;
+	gap: 0.5rem;
+	max-height: 250px;
+	overflow: auto;
+	padding-right: 0.2rem;
+}
+
+.question-preview-item {
+	border: 1px solid #ebdfcf;
+	border-radius: 12px;
+	background: #fffefb;
+	padding: 0.55rem 0.65rem;
+	display: flex;
+	justify-content: space-between;
+	gap: 0.7rem;
+}
+
+.question-preview-item span {
+	color: #686b79;
+	font-size: 0.88rem;
+	white-space: nowrap;
+}
+
+.generate-box {
+	margin-top: 1rem;
+	border: 1px dashed #d8c8b1;
+	border-radius: 14px;
+	padding: 0.8rem;
+	background: #fffcf5;
+}
+
+.generate-box h3 {
+	margin-top: 0;
 }
 
 .alts {
@@ -396,6 +516,15 @@ button {
 
 	.alt {
 		grid-template-columns: 1fr;
+	}
+
+	.grid-fields,
+	.details-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.question-preview-item {
+		flex-direction: column;
 	}
 
 	.form-actions {

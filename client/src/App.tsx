@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { api, Question } from './api'
 import QuestionList from './components/QuestionList'
 import QuestionForm from './components/QuestionForm'
+import ExamsPanel from './components/ExamsPanel'
 
 export default function App() {
+  const [activeTab, setActiveTab] = useState<'questions' | 'exams'>('questions')
   const [questions, setQuestions] = useState<Question[]>([])
   const [editing, setEditing] = useState<Question | null>(null)
   const [showForm, setShowForm] = useState(false)
@@ -81,19 +83,40 @@ export default function App() {
 
         {error && <p className="error-banner">{error}</p>}
 
-        <main>
-          {loading ? (
-            <div className="loading">Loading questions...</div>
-          ) : (
-            <QuestionList questions={questions} onEdit={handleEdit} onDelete={handleDelete} />
-          )}
+        <div className="tab-row">
+          <button
+            className={activeTab === 'questions' ? 'button-primary' : 'button-ghost'}
+            onClick={() => setActiveTab('questions')}
+          >
+            Questions
+          </button>
+          <button
+            className={activeTab === 'exams' ? 'button-primary' : 'button-ghost'}
+            onClick={() => setActiveTab('exams')}
+          >
+            Exams
+          </button>
+        </div>
 
-          {showForm && (
-            <QuestionForm
-              initial={editing ?? undefined}
-              onCancel={() => setShowForm(false)}
-              onSave={handleSave}
-            />
+        <main>
+          {activeTab === 'questions' ? (
+            <>
+              {loading ? (
+                <div className="loading">Loading questions...</div>
+              ) : (
+                <QuestionList questions={questions} onEdit={handleEdit} onDelete={handleDelete} />
+              )}
+
+              {showForm && (
+                <QuestionForm
+                  initial={editing ?? undefined}
+                  onCancel={() => setShowForm(false)}
+                  onSave={handleSave}
+                />
+              )}
+            </>
+          ) : (
+            <ExamsPanel />
           )}
         </main>
       </div>

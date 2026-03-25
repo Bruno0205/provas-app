@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import questionsRouter from './routes/questions';
+import examsRouter from './routes/exams';
 import path from 'path';
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
 app.use('/questions', questionsRouter);
+app.use('/exams', examsRouter);
 
 app.get('/', (req, res) => res.send({ ok: true }));
 
