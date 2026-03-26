@@ -1,4 +1,7 @@
-const BASE = 'http://localhost:4000';
+
+/// <reference types="vite/client" />
+
+const BASE = (import.meta.env.VITE_API_URL as string) ?? 'http://localhost:4000';
 
 export type Alternative = { id: string; text: string; correct: boolean };
 export type Question = { id: string; text: string; alternatives: Alternative[] };
